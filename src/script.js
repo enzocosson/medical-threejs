@@ -81,6 +81,63 @@ gltfLoader.load("./molecule.gltf", (gltf) => {
   animationMouseMove();
 });
 
+// Objects
+gltfLoader.load("./molecule.gltf", (gltf2) => {
+  gltf2.scene.scale.set(1.1, 1.1, 1.1);
+  gltf2.scene.position.set(10, 8, -60);
+  gltf2.scene.rotation.set(0.5, -1.3, 2.9);
+  gltf2.scene.opacity = "1";
+  scene.add(gltf2.scene);
+
+  const molecule = gui.addFolder("molecule2");
+  molecule.add(gltf2.scene.position, "x", -10, 10).step(0.1);
+  molecule.add(gltf2.scene.position, "y", -10, 10).step(0.1);
+  molecule.add(gltf2.scene.position, "z", -10, 10).step(0.1);
+  molecule.add(gltf2.scene.rotation, "x", -10, 10).step(0.1);
+  molecule.add(gltf2.scene.rotation, "y", -10, 10).step(0.1);
+  molecule.add(gltf2.scene.rotation, "z", -10, 10).step(0.1);
+
+  // loadedCount++;
+  // activateLoader();
+
+  function animationMouseMove2() {
+    // Ajouter un écouteur d'événement pour la souris
+    window.addEventListener("mousemove", onMouseMove, false);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let animate = true;
+
+    function onMouseMove(event) {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+      animate = true;
+    }
+
+    document.addEventListener("mousemove", onMouseMove, false);
+
+    function update() {
+      requestAnimationFrame(update);
+
+      if (animate) {
+        gsap.to(gltf2.scene.rotation, {
+          duration: 1,
+          x: mouseY * 0.05,
+          y: mouseX * 0.05,
+          ease: "power1.out",
+        });
+        animate = false;
+      }
+
+      // Render la scène
+      renderer.render(scene, camera);
+    }
+
+    update();
+  }
+  animationMouseMove2();
+});
+
 // Ambient Light
 
 const pointLight2 = new THREE.AmbientLight(0xffffff, 10);
@@ -197,6 +254,44 @@ gui
   .onChange(() => {
     camera.updateProjectionMatrix();
   });
+
+// Variables globales
+let mouseX = 0;
+let mouseY = 0;
+
+// Initialisation du renderer
+const webglRenderer = new THREE.WebGLRenderer({ antialias: true });
+webglRenderer.setSize(window.innerWidth, window.innerHeight);
+webglRenderer.setPixelRatio(window.devicePixelRatio);
+document.body.appendChild(webglRenderer.domElement);
+
+// Événement pour la souris
+window.addEventListener("mousemove", (event) => {
+  mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+  mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+});
+
+// Fonction d'animation
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Ajoutez ici la rotation de la caméra en fonction de la position de la souris
+  camera.position.x = mouseY * 0.02;
+  camera.position.y = mouseX * 0.02;
+
+  // Utilisez GSAP pour ajouter un easing à la rotation de la caméra
+  gsap.to(camera.rotation, {
+    duration: 1,
+    x: mouseY * 0.02,
+    y: mouseX * 0.02,
+
+    ease: "power2.out",
+  });
+
+  webglRenderer.render(scene, camera);
+}
+
+animate();
 
 /**
  * Renderer
