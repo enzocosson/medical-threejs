@@ -26,8 +26,8 @@ const scene = new THREE.Scene();
 
 // Objects
 gltfLoader.load("./molecule.gltf", (gltf) => {
-  gltf.scene.scale.set(1.1, 1.1, 1.1);
-  gltf.scene.position.set(-2, 0, -20);
+  gltf.scene.scale.set(0.9, 0.9, 0.9);
+  gltf.scene.position.set(-2, 0, -15);
   gltf.scene.rotation.set(0, 0, 0);
   gltf.scene.opacity = "1";
   scene.add(gltf.scene);
@@ -84,8 +84,8 @@ gltfLoader.load("./molecule.gltf", (gltf) => {
 // Objects
 gltfLoader.load("./molecule.gltf", (gltf2) => {
   gltf2.scene.scale.set(1.1, 1.1, 1.1);
-  gltf2.scene.position.set(10, 8, -60);
-  gltf2.scene.rotation.set(0.5, -1.3, 2.9);
+  gltf2.scene.position.set(13, 8, -60);
+  gltf2.scene.rotation.set(-0.7, -0.5, 2.9);
   gltf2.scene.opacity = "1";
   scene.add(gltf2.scene);
 
@@ -122,6 +122,63 @@ gltfLoader.load("./molecule.gltf", (gltf2) => {
       if (animate) {
         gsap.to(gltf2.scene.rotation, {
           duration: 1,
+          x: mouseY * 0.1,
+          y: mouseX * 0.1,
+          ease: "power1.out",
+        });
+        animate = false;
+      }
+
+      // Render la scène
+      renderer.render(scene, camera);
+    }
+
+    update();
+  }
+  animationMouseMove2();
+});
+
+// Objects
+gltfLoader.load("./molecule.gltf", (gltf3) => {
+  gltf3.scene.scale.set(1.1, 1.1, 1.1);
+  gltf3.scene.position.set(40, -20, -120);
+  gltf3.scene.rotation.set(-0.7, -0.5, 2.7);
+  gltf3.scene.opacity = "1";
+  scene.add(gltf3.scene);
+
+  const molecule = gui.addFolder("molecule3");
+  molecule.add(gltf3.scene.position, "x", -10, 10).step(0.1);
+  molecule.add(gltf3.scene.position, "y", -10, 10).step(0.1);
+  molecule.add(gltf3.scene.position, "z", -10, 10).step(0.1);
+  molecule.add(gltf3.scene.rotation, "x", -10, 10).step(0.1);
+  molecule.add(gltf3.scene.rotation, "y", -10, 10).step(0.1);
+  molecule.add(gltf3.scene.rotation, "z", -10, 10).step(0.1);
+
+  // loadedCount++;
+  // activateLoader();
+
+  function animationMouseMove3() {
+    // Ajouter un écouteur d'événement pour la souris
+    window.addEventListener("mousemove", onMouseMove, false);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let animate = true;
+
+    function onMouseMove(event) {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+      animate = true;
+    }
+
+    document.addEventListener("mousemove", onMouseMove, false);
+
+    function update() {
+      requestAnimationFrame(update);
+
+      if (animate) {
+        gsap.to(gltf3.scene.rotation, {
+          duration: 1,
           x: mouseY * 0.05,
           y: mouseX * 0.05,
           ease: "power1.out",
@@ -135,7 +192,121 @@ gltfLoader.load("./molecule.gltf", (gltf2) => {
 
     update();
   }
-  animationMouseMove2();
+  animationMouseMove3();
+});
+
+// Objects
+gltfLoader.load("./molecule.gltf", (gltf4) => {
+  gltf4.scene.scale.set(1, 1, 1);
+  gltf4.scene.position.set(-45, 30, -250);
+  gltf4.scene.rotation.set(0.22, 5, 3);
+  gltf4.scene.opacity = "1";
+  scene.add(gltf4.scene);
+
+  const molecule = gui.addFolder("molecule4");
+  molecule.add(gltf4.scene.position, "x", -10, 10).step(0.1);
+  molecule.add(gltf4.scene.position, "y", -10, 10).step(0.1);
+  molecule.add(gltf4.scene.position, "z", -10, 10).step(0.1);
+  molecule.add(gltf4.scene.rotation, "x", -10, 10).step(0.1);
+  molecule.add(gltf4.scene.rotation, "y", -10, 10).step(0.1);
+  molecule.add(gltf4.scene.rotation, "z", -10, 10).step(0.1);
+
+  // loadedCount++;
+  // activateLoader();
+
+  function animationMouseMove4() {
+    // Ajouter un écouteur d'événement pour la souris
+    window.addEventListener("mousemove", onMouseMove, false);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let animate = true;
+
+    function onMouseMove(event) {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+      animate = true;
+    }
+
+    document.addEventListener("mousemove", onMouseMove, false);
+
+    function update() {
+      requestAnimationFrame(update);
+
+      if (animate) {
+        gsap.to(gltf4.scene.rotation, {
+          duration: 1,
+          x: mouseY * 0.01,
+          y: mouseX * 0.01,
+          ease: "power1.out",
+        });
+        animate = false;
+      }
+
+      // Render la scène
+      renderer.render(scene, camera);
+    }
+
+    update();
+  }
+  animationMouseMove4();
+});
+
+// Objects
+gltfLoader.load("./molecule.gltf", (gltf5) => {
+  gltf5.scene.scale.set(1, 1, 1);
+  gltf5.scene.position.set(-32, -4, -90);
+  gltf5.scene.rotation.set(-1.1, 0.3, 3);
+  gltf5.scene.opacity = "1";
+  scene.add(gltf5.scene);
+
+  const molecule = gui.addFolder("molecule5");
+  molecule.add(gltf5.scene.position, "x", -10, 10).step(0.1);
+  molecule.add(gltf5.scene.position, "y", -10, 10).step(0.1);
+  molecule.add(gltf5.scene.position, "z", -10, 10).step(0.1);
+  molecule.add(gltf5.scene.rotation, "x", -10, 10).step(0.1);
+  molecule.add(gltf5.scene.rotation, "y", -10, 10).step(0.1);
+  molecule.add(gltf5.scene.rotation, "z", -10, 10).step(0.1);
+
+  // loadedCount++;
+  // activateLoader();
+
+  function animationMouseMove5() {
+    // Ajouter un écouteur d'événement pour la souris
+    window.addEventListener("mousemove", onMouseMove, false);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let animate = true;
+
+    function onMouseMove(event) {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+      animate = true;
+    }
+
+    document.addEventListener("mousemove", onMouseMove, false);
+
+    function update() {
+      requestAnimationFrame(update);
+
+      if (animate) {
+        gsap.to(gltf5.scene.rotation, {
+          duration: 1,
+          x: mouseY * 0.2,
+          y: mouseX * 0.2,
+          ease: "power1.out",
+        });
+        animate = false;
+      }
+
+      // Render la scène
+      renderer.render(scene, camera);
+    }
+
+    update();
+  }
+  animationMouseMove5();
 });
 
 // Ambient Light
@@ -231,7 +402,6 @@ camera.position.z = 0;
 camera.rotation.x = 0;
 camera.rotation.y = 0;
 camera.rotation.z = 0;
-
 camera.far = 10000;
 
 scene.add(camera);
@@ -255,7 +425,15 @@ gui
     camera.updateProjectionMatrix();
   });
 
-// Variables globales
+gsap.to(camera, {
+  far: 10001,
+  duration: 1, // durée de l'animation
+  onUpdate: function () {
+    camera.updateProjectionMatrix(); // mise à jour de la projection de la caméra pendant l'animation
+  },
+});
+
+// Variables globales ---------------------------------------------------------
 let mouseX = 0;
 let mouseY = 0;
 
