@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
 * {
   padding: 0;
@@ -11,14 +11,12 @@ html {
   overflow-x: hidden;
 }
 
-$green: #70e8cb;
-$green_transparent: rgba(112, 232, 203, 0.56);
 $white: #fcfcfc;
-$white_transparent: rgba(252, 252, 252, 0.33);
-$black: #232323;
-
-$font_base: Base Neue;
-$font_sf: "Inter", sans-serif;
+$green: #00b0a2;
+$dark-green: #006d64;
+$red: #ff8080;
+$black: #272727;
+$font_primary: "Montserrat", sans-serif;
 
 // ::selection {
 //   background-color: var(--primary-color);
