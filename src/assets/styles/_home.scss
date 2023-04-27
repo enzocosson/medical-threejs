@@ -382,7 +382,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 1200px;
+    width: 1150px;
     padding: 5rem 0;
 
     .card {
@@ -541,4 +541,178 @@ footer {
     font-weight: 400;
     z-index: 2;
   }
+}
+
+@media screen and (max-width: 1200px) {
+  .couverture {
+    header {
+      padding: 0 3rem;
+      nav ul li a,
+      nav ul li p {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.5rem;
+      }
+    }
+    .title {
+      h1 {
+        font-size: 7rem;
+        line-height: 7rem;
+      }
+      h2 {
+        margin-top: 1.5rem;
+        letter-spacing: 0.3rem;
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .contexte {
+    padding: 3rem;
+    .illu img {
+      width: 70%;
+    }
+  }
+
+  .qui .silhouettes {
+    width: 26%;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    z-index: 2;
+  }
+  .plus__info .container__cards {
+    width: 975px;
+    padding: 3rem 0;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .couverture {
+    header {
+      z-index: 999;
+      nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        transition: all 0.3s ease-in-out;
+        transform: translateX(-100%);
+      }
+    }
+    .title {
+      h1 {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+      h2 {
+        margin-top: 1.2rem;
+        letter-spacing: 0.3rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .contexte {
+    .container__text .text {
+      .citation {
+        font-size: 1rem;
+      }
+      .signature {
+        font-size: 1.1rem;
+      }
+    }
+    padding: 2rem;
+    .illu img {
+      width: 80%;
+    }
+  }
+
+  .presentation__projet {
+    padding: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+    .imac {
+      width: 55%;
+      margin: 2rem 0;
+    }
+    p {
+      width: 90%;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+  .qui {
+    padding: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+    .silhouettes {
+      width: 30%;
+      margin: 2rem 0;
+    }
+    p {
+      width: 100%;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+  .plus__info {
+    padding: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+    .container__cards {
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+  }
+
+  footer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    background-color: var(--dark-green);
+    flex-direction: column;
+    row-gap: 2rem;
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .copyright {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      transform: translate(0, 0);
+      font-family: "Montserrat", sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      text-align: left;
+      font-weight: 400;
+      z-index: 2;
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 780) {
 }
