@@ -1,9 +1,13 @@
-.home {
+.couverture {
   position: relative;
   width: 100%;
   height: 100vh;
   z-index: 0;
-  background: radial-gradient(50% 50% at 50% 50%, #98e0da 0%, $green 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #98e0da 0%,
+    var(--green) 100%
+  );
 
   display: flex;
   flex-direction: column;
@@ -57,27 +61,40 @@
           p {
             font-family: $font_primary;
             font-size: 1rem;
-            color: $white;
+            color: #fcfcfc;
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 0.2rem;
-            transition: background-color 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out,
+              color 0.2s ease-in-out;
 
             &:hover {
-              background-color: $green;
+              background-color: var(--dark-green);
             }
           }
           .active {
-            background-color: $green;
+            background-color: var(--dark-green);
           }
         }
         .darkmode__btn {
           position: relative;
           width: 1.2rem;
+          height: 1.2rem;
 
           img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
+            transition: 0.2s ease-in-out;
+          }
+          .on {
+            opacity: 0;
+          }
+          .on_active {
+            opacity: 1;
           }
         }
       }
@@ -96,9 +113,10 @@
       font-size: 10rem;
       line-height: 10rem;
       letter-spacing: 1rem;
-      color: $white;
+      color: var(--white);
       text-align: center;
       text-shadow: 0px 0px 19px rgba(0, 0, 0, 0.31);
+      transition: color 0.2s ease-in-out;
     }
     h2 {
       text-transform: capitalize;
@@ -106,9 +124,10 @@
       font-family: $font_primary;
       letter-spacing: 0.3rem;
       font-size: 2rem;
-      color: $white;
+      color: var(--white);
       text-align: center;
       text-shadow: 0px 0px 19px rgba(0, 0, 0, 0.31);
+      transition: color 0.2s ease-in-out;
     }
   }
   .more {
@@ -118,22 +137,408 @@
     transform: translate(-50%, -50%);
     font-family: $font_primary;
     font-size: 1rem;
-    color: $green;
+    color: var(--green);
     font-weight: 600;
-    background-color: $white;
+    background-color: var(--white);
     padding: 0.8rem 2.5rem;
-    border: 2px solid $white;
+    border: 2px solid var(--white);
     border-radius: 0.2rem;
     text-align: center;
-    text-shadow: 0px 0px 19px rgba(0, 0, 0, 0.31);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+
+    z-index: 2;
+
+    &:hover {
+      color: var(--white);
+      background-color: transparent;
+    }
+  }
+}
+
+.contexte {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5rem;
+  background-color: var(--white);
+
+  .container__text,
+  .illu {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .container__text {
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      .citation {
+        font-family: $font_primary;
+        font-size: 1.2rem;
+        color: var(--white);
+        text-align: justify;
+        background-color: var(--green);
+        border-radius: 5px;
+        padding: 1.3rem;
+      }
+      .signature {
+        margin-top: 0.5rem;
+        font-family: $font_primary;
+        font-size: 1.3rem;
+        color: var(--green);
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.5rem;
+      }
+    }
+  }
+  .illu {
+    img {
+      width: 60%;
+    }
+  }
+}
+
+.presentation__projet {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5rem;
+  background-color: var(--white);
+
+  h1 {
+    font-family: $font_primary;
+    font-size: 5rem;
+    color: var(--green);
+    text-align: center;
+    font-weight: 700;
+    line-height: 5rem;
+    text-transform: uppercase;
+  }
+
+  .imac {
+    width: 35%;
+    margin: 5rem 0;
+  }
+
+  p {
+    width: 60%;
+    font-family: $font_primary;
+    font-size: 1.2rem;
+    color: var(--black);
+    text-align: center;
+    line-height: 1.5rem;
+  }
+
+  .more {
+    text-decoration: none;
+    margin-top: 2rem;
+    font-family: $font_primary;
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 600;
+    background-color: var(--green);
+    padding: 0.8rem 2.5rem;
+    border: 2px solid var(--green);
+    border-radius: 0.2rem;
+    text-align: center;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
     z-index: 2;
 
     &:hover {
-      color: $white;
+      color: var(--green);
       background-color: transparent;
     }
+  }
+}
+
+.qui {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5rem;
+  background-color: var(--green);
+  overflow: hidden;
+
+  .illu__bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 80rem;
+
+    z-index: 0;
+
+    font-weight: bold;
+    font-family: $font_primary;
+    color: rgba(255, 255, 255, 0.226);
+  }
+
+  h1 {
+    font-family: $font_primary;
+    font-size: 5rem;
+    color: var(--white);
+    text-align: center;
+    font-weight: 700;
+    line-height: 5rem;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .silhouettes {
+    width: 20%;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    z-index: 2;
+  }
+
+  p {
+    width: 60%;
+    font-family: $font_primary;
+    font-size: 1.2rem;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.5rem;
+    font-weight: 500;
+    z-index: 2;
+  }
+
+  .more {
+    text-decoration: none;
+    margin-top: 2rem;
+    font-family: $font_primary;
+    font-size: 1rem;
+    color: var(--green);
+    font-weight: 600;
+    background-color: var(--white);
+    padding: 0.8rem 2.5rem;
+    border: 2px solid var(--white);
+    border-radius: 0.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    z-index: 2;
+
+    &:hover {
+      color: var(--white);
+      background-color: transparent;
+    }
+  }
+}
+.plus__info {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5rem;
+  background-color: var(--white);
+  overflow: hidden;
+
+  h1 {
+    font-family: $font_primary;
+    font-size: 5rem;
+    color: var(--green);
+    text-align: center;
+    font-weight: 700;
+    line-height: 5rem;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .container__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    padding: 5rem 0;
+
+    .card {
+      width: 300px;
+      height: 300px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      box-shadow: 0px 0px 39px -2px rgba(0, 0, 0, 0.1);
+
+      .card__head {
+        position: relative;
+        width: 100%;
+        height: 48%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: var(--green);
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.3;
+          z-index: 0;
+        }
+        h2 {
+          font-family: $font_primary;
+          font-size: 1.5rem;
+          color: var(--white);
+          text-align: center;
+          line-height: 1.5rem;
+          font-weight: bold;
+          z-index: 2;
+          text-transform: uppercase;
+          // text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.548);
+        }
+      }
+      .card__description {
+        width: 100%;
+        height: 52%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p {
+          font-family: $font_primary;
+          font-size: 1rem;
+          color: var(--black);
+          text-align: center;
+          line-height: 1.2rem;
+          font-weight: 400;
+          z-index: 2;
+          margin-bottom: 1rem;
+        }
+        .lire {
+          text-decoration: none;
+          font-family: $font_primary;
+          font-size: 1rem;
+          color: var(--white);
+          font-weight: 600;
+          background-color: var(--green);
+          padding: 0.4rem 2rem;
+          border: 2px solid var(--green);
+          border-radius: 0.2rem;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          z-index: 2;
+
+          &:hover {
+            color: var(--green);
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  padding: 5rem;
+  background-color: var(--dark-green);
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 1rem;
+
+    img {
+      width: 20rem;
+    }
+    a {
+      font-family: $font_primary;
+      font-size: 1rem;
+      color: var(--white);
+      text-align: left;
+      font-weight: 400;
+      z-index: 2;
+      text-decoration: none;
+    }
+    p {
+      font-family: $font_primary;
+      font-size: 1rem;
+      color: var(--white);
+      text-align: left;
+      font-weight: 400;
+      z-index: 2;
+    }
+    .reseaux {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 1rem;
+      img {
+        width: 25px;
+      }
+    }
+  }
+  .copyright {
+    position: absolute;
+    bottom: calc(0% + 5rem);
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-family: $font_primary;
+    font-size: 1rem;
+    color: var(--white);
+    text-align: left;
+    font-weight: 400;
+    z-index: 2;
+  }
+  .mention {
+    font-family: $font_primary;
+    font-size: 1rem;
+    color: var(--white);
+    text-align: left;
+    font-weight: 400;
+    z-index: 2;
   }
 }

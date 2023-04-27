@@ -14,15 +14,15 @@ const canvas = document.querySelector("canvas.webgl");
 // Scene
 const scene = new THREE.Scene();
 
-// let loadedCount = 0;
-// const expectedLoadCount = 1;
+let loadedCount = 0;
+const expectedLoadCount = 5;
 
-// function activateLoader() {
-//   if (loadedCount === expectedLoadCount) {
-//     const loader = document.querySelector(".loader");
-//     loader.classList.add("loader__active");
-//   }
-// }
+function activateLoader() {
+  if (loadedCount === expectedLoadCount) {
+    const loader = document.querySelector(".loader");
+    loader.classList.add("loader__active");
+  }
+}
 
 // Objects
 gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
@@ -39,9 +39,6 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
   molecule.add(gltf.scene.rotation, "x", -10, 10).step(0.1);
   molecule.add(gltf.scene.rotation, "y", -10, 10).step(0.1);
   molecule.add(gltf.scene.rotation, "z", -10, 10).step(0.1);
-
-  // loadedCount++;
-  // activateLoader();
 
   function animationMouseMove() {
     // Ajouter un écouteur d'événement pour la souris
@@ -79,9 +76,10 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
     update();
   }
   animationMouseMove();
+  loadedCount++;
+  activateLoader();
 });
 
-// Objects
 gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
   gltf2.scene.scale.set(1.1, 1.1, 1.1);
   gltf2.scene.position.set(13, 8, -60);
@@ -96,9 +94,6 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
   molecule.add(gltf2.scene.rotation, "x", -10, 10).step(0.1);
   molecule.add(gltf2.scene.rotation, "y", -10, 10).step(0.1);
   molecule.add(gltf2.scene.rotation, "z", -10, 10).step(0.1);
-
-  // loadedCount++;
-  // activateLoader();
 
   function animationMouseMove2() {
     // Ajouter un écouteur d'événement pour la souris
@@ -136,9 +131,10 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
     update();
   }
   animationMouseMove2();
+  loadedCount++;
+  activateLoader();
 });
 
-// Objects
 gltfLoader.load("./molecule_opaque.gltf", (gltf3) => {
   gltf3.scene.scale.set(1.1, 1.1, 1.1);
   gltf3.scene.position.set(40, -20, -120);
@@ -153,9 +149,6 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf3) => {
   molecule.add(gltf3.scene.rotation, "x", -10, 10).step(0.1);
   molecule.add(gltf3.scene.rotation, "y", -10, 10).step(0.1);
   molecule.add(gltf3.scene.rotation, "z", -10, 10).step(0.1);
-
-  // loadedCount++;
-  // activateLoader();
 
   function animationMouseMove3() {
     // Ajouter un écouteur d'événement pour la souris
@@ -193,9 +186,11 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf3) => {
     update();
   }
   animationMouseMove3();
+
+  loadedCount++;
+  activateLoader();
 });
 
-// Objects
 gltfLoader.load("./molecule_opaque.gltf", (gltf4) => {
   gltf4.scene.scale.set(1, 1, 1);
   gltf4.scene.position.set(-45, 30, -250);
@@ -210,9 +205,6 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf4) => {
   molecule.add(gltf4.scene.rotation, "x", -10, 10).step(0.1);
   molecule.add(gltf4.scene.rotation, "y", -10, 10).step(0.1);
   molecule.add(gltf4.scene.rotation, "z", -10, 10).step(0.1);
-
-  // loadedCount++;
-  // activateLoader();
 
   function animationMouseMove4() {
     // Ajouter un écouteur d'événement pour la souris
@@ -250,9 +242,11 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf4) => {
     update();
   }
   animationMouseMove4();
+
+  loadedCount++;
+  activateLoader();
 });
 
-// Objects
 gltfLoader.load("./molecule_opaque.gltf", (gltf5) => {
   gltf5.scene.scale.set(1, 1, 1);
   gltf5.scene.position.set(-32, -4, -90);
@@ -267,9 +261,6 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf5) => {
   molecule.add(gltf5.scene.rotation, "x", -10, 10).step(0.1);
   molecule.add(gltf5.scene.rotation, "y", -10, 10).step(0.1);
   molecule.add(gltf5.scene.rotation, "z", -10, 10).step(0.1);
-
-  // loadedCount++;
-  // activateLoader();
 
   function animationMouseMove5() {
     // Ajouter un écouteur d'événement pour la souris
@@ -307,6 +298,9 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf5) => {
     update();
   }
   animationMouseMove5();
+
+  loadedCount++;
+  activateLoader();
 });
 
 // Ambient Light
@@ -485,3 +479,26 @@ const tick = () => {
 };
 
 tick();
+
+// Loader -------------------------------------------
+const contenu = document.querySelector(".contenu");
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", window.location.href, true);
+xhr.onloadstart = () => {
+  contenu.style.width = "0%";
+};
+xhr.onprogress = (e) => {
+  const percentLoaded = (e.loaded / e.total) * 100;
+  contenu.style.width = percentLoaded + "%";
+};
+xhr.onloadend = () => {
+  if (xhr.status === 200) {
+    contenu.style.width = "100%";
+  }
+};
+xhr.send();
+
+window.addEventListener("load", () => {
+  activateLoader();
+});

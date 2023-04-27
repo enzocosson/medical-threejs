@@ -11,11 +11,13 @@ html {
   overflow-x: hidden;
 }
 
-$white: #fcfcfc;
-$green: #00b0a2;
-$dark-green: #006d64;
-$red: #ff8080;
-$black: #272727;
+:root {
+  --white: #fcfcfc;
+  --green: #00b0a2;
+  --dark-green: #006d64;
+  --red: #ff8080;
+  --black: #272727;
+}
 $font_primary: "Montserrat", sans-serif;
 
 // ::selection {

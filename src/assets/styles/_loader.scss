@@ -1,0 +1,138 @@
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: initial;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 5rem;
+
+  .logo {
+    width: 30vw;
+  }
+
+  .container__loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    color: var(--white);
+    font-family: $font-primary;
+    font-size: 1rem;
+    row-gap: 0.5rem;
+
+    .flacon {
+      position: relative;
+      width: 20rem;
+      height: 2rem;
+      background-color: var(--white);
+      border-radius: 25px 0 0 25px;
+      border: 4px solid var(--white);
+      background-color: transparent;
+      z-index: 2;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -0.5rem;
+        transform: translate(0%, -50%);
+        width: 0.5rem;
+        height: 2.6rem;
+        background-color: var(--white);
+        border-radius: 10px;
+      }
+
+      .graduation {
+        position: absolute;
+        transform: translate(-50%, 0%);
+        width: 0.2rem;
+        height: 0.8rem;
+        border-radius: 0 0 25px 25px;
+        background-color: var(--white);
+        z-index: 1;
+      }
+      .grad1 {
+        top: 0%;
+        left: 10%;
+      }
+      .grad2 {
+        top: 0%;
+        left: 20%;
+      }
+      .grad3 {
+        top: 0%;
+        left: 30%;
+      }
+      .grad4 {
+        top: 0%;
+        left: 40%;
+      }
+      .grad5 {
+        top: 0%;
+        left: 50%;
+      }
+      .grad6 {
+        top: 0%;
+        left: 60%;
+      }
+      .grad7 {
+        top: 0%;
+        left: 70%;
+      }
+      .grad8 {
+        top: 0%;
+        left: 80%;
+      }
+      .grad9 {
+        top: 0%;
+        left: 90%;
+      }
+      .contenu {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        width: 0%;
+        height: 100%;
+        background-color: var(--white);
+        border-radius: 25px 0 0 25px;
+        z-index: 0;
+        transition: width 0.5s ease-in-out;
+      }
+    }
+  }
+}
+.loader__active {
+  animation: loader 1s ease-in-out 1 forwards;
+  animation-delay: 0.5s;
+
+  @keyframes loader {
+    0% {
+      opacity: 1;
+      z-index: 999;
+      pointer-events: initial;
+    }
+    90% {
+      opacity: 0;
+      z-index: 999;
+      pointer-events: initial;
+    }
+    100% {
+      opacity: 0;
+      z-index: -999;
+      pointer-events: none;
+    }
+  }
+}
