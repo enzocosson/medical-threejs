@@ -25,7 +25,7 @@ const scene = new THREE.Scene();
 // }
 
 // Objects
-gltfLoader.load("./molecule.gltf", (gltf) => {
+gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
   gltf.scene.scale.set(0.9, 0.9, 0.9);
   gltf.scene.position.set(-2, 0, -15);
   gltf.scene.rotation.set(0, 0, 0);
@@ -82,7 +82,7 @@ gltfLoader.load("./molecule.gltf", (gltf) => {
 });
 
 // Objects
-gltfLoader.load("./molecule.gltf", (gltf2) => {
+gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
   gltf2.scene.scale.set(1.1, 1.1, 1.1);
   gltf2.scene.position.set(13, 8, -60);
   gltf2.scene.rotation.set(-0.7, -0.5, 2.9);
@@ -139,7 +139,7 @@ gltfLoader.load("./molecule.gltf", (gltf2) => {
 });
 
 // Objects
-gltfLoader.load("./molecule.gltf", (gltf3) => {
+gltfLoader.load("./molecule_opaque.gltf", (gltf3) => {
   gltf3.scene.scale.set(1.1, 1.1, 1.1);
   gltf3.scene.position.set(40, -20, -120);
   gltf3.scene.rotation.set(-0.7, -0.5, 2.7);
@@ -196,7 +196,7 @@ gltfLoader.load("./molecule.gltf", (gltf3) => {
 });
 
 // Objects
-gltfLoader.load("./molecule.gltf", (gltf4) => {
+gltfLoader.load("./molecule_opaque.gltf", (gltf4) => {
   gltf4.scene.scale.set(1, 1, 1);
   gltf4.scene.position.set(-45, 30, -250);
   gltf4.scene.rotation.set(0.22, 5, 3);
@@ -253,7 +253,7 @@ gltfLoader.load("./molecule.gltf", (gltf4) => {
 });
 
 // Objects
-gltfLoader.load("./molecule.gltf", (gltf5) => {
+gltfLoader.load("./molecule_opaque.gltf", (gltf5) => {
   gltf5.scene.scale.set(1, 1, 1);
   gltf5.scene.position.set(-32, -4, -90);
   gltf5.scene.rotation.set(-1.1, 0.3, 3);
@@ -316,7 +316,7 @@ pointLight2.scale.set(0.3, 0.3, 0.3);
 pointLight2.position.x = 0;
 pointLight2.position.y = 0;
 pointLight2.position.z = 5;
-pointLight2.intensity = 0.4;
+pointLight2.intensity = 0.6;
 scene.add(pointLight2);
 
 const light2 = gui.addFolder("AmbientLight");
@@ -432,44 +432,30 @@ gsap.to(camera, {
     camera.updateProjectionMatrix(); // mise à jour de la projection de la caméra pendant l'animation
   },
 });
-
-// Variables globales ---------------------------------------------------------
 let mouseX = 0;
 let mouseY = 0;
-
-// Initialisation du renderer
-const webglRenderer = new THREE.WebGLRenderer({ antialias: true });
-webglRenderer.setSize(window.innerWidth, window.innerHeight);
-webglRenderer.setPixelRatio(window.devicePixelRatio);
-document.body.appendChild(webglRenderer.domElement);
 
 // Événement pour la souris
 window.addEventListener("mousemove", (event) => {
   mouseX = (event.clientX / window.innerWidth) * 2 - 1;
   mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  // Animation de la position de la caméra avec GSAP
+  gsap.to(camera.position, {
+    x: mouseX * 0.2,
+    y: mouseY * 0.2,
+    ease: "Power1.easeOut",
+  });
 });
 
 // Fonction d'animation
 function animate() {
   requestAnimationFrame(animate);
-
-  // Ajoutez ici la rotation de la caméra en fonction de la position de la souris
-  camera.position.x = mouseY * 0.02;
-  camera.position.y = mouseX * 0.02;
-
-  // Utilisez GSAP pour ajouter un easing à la rotation de la caméra
-  gsap.to(camera.rotation, {
-    duration: 1,
-    x: mouseY * 0.02,
-    y: mouseX * 0.02,
-
-    ease: "power2.out",
-  });
-
-  webglRenderer.render(scene, camera);
 }
 
 animate();
+
+// Variables globales ---------------------------------------------------------
 
 /**
  * Renderer
