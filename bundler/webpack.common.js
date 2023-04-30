@@ -6,6 +6,7 @@ const path = require("path");
 module.exports = {
   entry: {
     main: path.resolve(__dirname, "../src/script.js"),
+    menuToggle: path.resolve(__dirname, "../src/assets/js/menuToggle.js"),
     darkmode: path.resolve(__dirname, "../src/assets/js/darkmode.js"),
   },
   output: {
