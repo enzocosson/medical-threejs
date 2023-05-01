@@ -747,5 +747,16 @@ footer {
   }
 }
 
-@media screen and (max-width: 780) {
+@media screen and (max-width: 780px) {
+  .couverture .title {
+    h1 {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+    h2 {
+      margin-top: 1.2rem;
+      letter-spacing: 0.3rem;
+      font-size: 1rem;
+    }
+  }
 }
