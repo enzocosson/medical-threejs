@@ -5,7 +5,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import "./assets/styles/main.scss";
 
 // Debug
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 
 const gltfLoader = new GLTFLoader();
 // Canvas
@@ -32,13 +32,13 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
   gltf.scene.opacity = "1";
   scene.add(gltf.scene);
 
-  const molecule = gui.addFolder("molecule");
-  molecule.add(gltf.scene.position, "x", -10, 10).step(0.1);
-  molecule.add(gltf.scene.position, "y", -10, 10).step(0.1);
-  molecule.add(gltf.scene.position, "z", -10, 10).step(0.1);
-  molecule.add(gltf.scene.rotation, "x", -10, 10).step(0.1);
-  molecule.add(gltf.scene.rotation, "y", -10, 10).step(0.1);
-  molecule.add(gltf.scene.rotation, "z", -10, 10).step(0.1);
+  // const molecule = gui.addFolder("molecule");
+  // molecule.add(gltf.scene.position, "x", -10, 10).step(0.1);
+  // molecule.add(gltf.scene.position, "y", -10, 10).step(0.1);
+  // molecule.add(gltf.scene.position, "z", -10, 10).step(0.1);
+  // molecule.add(gltf.scene.rotation, "x", -10, 10).step(0.1);
+  // molecule.add(gltf.scene.rotation, "y", -10, 10).step(0.1);
+  // molecule.add(gltf.scene.rotation, "z", -10, 10).step(0.1);
 
   function animationMouseMove() {
     // Ajouter un écouteur d'événement pour la souris
@@ -75,9 +75,16 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
 
     update();
   }
+
   animationMouseMove();
+
   loadedCount++;
   activateLoader();
+
+  const loader = document.querySelector(".loader");
+  if (loader.classList.contains("loader__active")) {
+    console.log("loader active");
+  }
 });
 
 gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
@@ -87,13 +94,13 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
   gltf2.scene.opacity = "1";
   scene.add(gltf2.scene);
 
-  const molecule = gui.addFolder("molecule2");
-  molecule.add(gltf2.scene.position, "x", -10, 10).step(0.1);
-  molecule.add(gltf2.scene.position, "y", -10, 10).step(0.1);
-  molecule.add(gltf2.scene.position, "z", -10, 10).step(0.1);
-  molecule.add(gltf2.scene.rotation, "x", -10, 10).step(0.1);
-  molecule.add(gltf2.scene.rotation, "y", -10, 10).step(0.1);
-  molecule.add(gltf2.scene.rotation, "z", -10, 10).step(0.1);
+  // const molecule = gui.addFolder("molecule2");
+  // molecule.add(gltf2.scene.position, "x", -10, 10).step(0.1);
+  // molecule.add(gltf2.scene.position, "y", -10, 10).step(0.1);
+  // molecule.add(gltf2.scene.position, "z", -10, 10).step(0.1);
+  // molecule.add(gltf2.scene.rotation, "x", -10, 10).step(0.1);
+  // molecule.add(gltf2.scene.rotation, "y", -10, 10).step(0.1);
+  // molecule.add(gltf2.scene.rotation, "z", -10, 10).step(0.1);
 
   function animationMouseMove2() {
     // Ajouter un écouteur d'événement pour la souris
@@ -142,13 +149,13 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf3) => {
   gltf3.scene.opacity = "1";
   scene.add(gltf3.scene);
 
-  const molecule = gui.addFolder("molecule3");
-  molecule.add(gltf3.scene.position, "x", -10, 10).step(0.1);
-  molecule.add(gltf3.scene.position, "y", -10, 10).step(0.1);
-  molecule.add(gltf3.scene.position, "z", -10, 10).step(0.1);
-  molecule.add(gltf3.scene.rotation, "x", -10, 10).step(0.1);
-  molecule.add(gltf3.scene.rotation, "y", -10, 10).step(0.1);
-  molecule.add(gltf3.scene.rotation, "z", -10, 10).step(0.1);
+  // const molecule = gui.addFolder("molecule3");
+  // molecule.add(gltf3.scene.position, "x", -10, 10).step(0.1);
+  // molecule.add(gltf3.scene.position, "y", -10, 10).step(0.1);
+  // molecule.add(gltf3.scene.position, "z", -10, 10).step(0.1);
+  // molecule.add(gltf3.scene.rotation, "x", -10, 10).step(0.1);
+  // molecule.add(gltf3.scene.rotation, "y", -10, 10).step(0.1);
+  // molecule.add(gltf3.scene.rotation, "z", -10, 10).step(0.1);
 
   function animationMouseMove3() {
     // Ajouter un écouteur d'événement pour la souris
@@ -198,13 +205,13 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf4) => {
   gltf4.scene.opacity = "1";
   scene.add(gltf4.scene);
 
-  const molecule = gui.addFolder("molecule4");
-  molecule.add(gltf4.scene.position, "x", -10, 10).step(0.1);
-  molecule.add(gltf4.scene.position, "y", -10, 10).step(0.1);
-  molecule.add(gltf4.scene.position, "z", -10, 10).step(0.1);
-  molecule.add(gltf4.scene.rotation, "x", -10, 10).step(0.1);
-  molecule.add(gltf4.scene.rotation, "y", -10, 10).step(0.1);
-  molecule.add(gltf4.scene.rotation, "z", -10, 10).step(0.1);
+  // const molecule = gui.addFolder("molecule4");
+  // molecule.add(gltf4.scene.position, "x", -10, 10).step(0.1);
+  // molecule.add(gltf4.scene.position, "y", -10, 10).step(0.1);
+  // molecule.add(gltf4.scene.position, "z", -10, 10).step(0.1);
+  // molecule.add(gltf4.scene.rotation, "x", -10, 10).step(0.1);
+  // molecule.add(gltf4.scene.rotation, "y", -10, 10).step(0.1);
+  // molecule.add(gltf4.scene.rotation, "z", -10, 10).step(0.1);
 
   function animationMouseMove4() {
     // Ajouter un écouteur d'événement pour la souris
@@ -254,13 +261,13 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf5) => {
   gltf5.scene.opacity = "1";
   scene.add(gltf5.scene);
 
-  const molecule = gui.addFolder("molecule5");
-  molecule.add(gltf5.scene.position, "x", -10, 10).step(0.1);
-  molecule.add(gltf5.scene.position, "y", -10, 10).step(0.1);
-  molecule.add(gltf5.scene.position, "z", -10, 10).step(0.1);
-  molecule.add(gltf5.scene.rotation, "x", -10, 10).step(0.1);
-  molecule.add(gltf5.scene.rotation, "y", -10, 10).step(0.1);
-  molecule.add(gltf5.scene.rotation, "z", -10, 10).step(0.1);
+  // const molecule = gui.addFolder("molecule5");
+  // molecule.add(gltf5.scene.position, "x", -10, 10).step(0.1);
+  // molecule.add(gltf5.scene.position, "y", -10, 10).step(0.1);
+  // molecule.add(gltf5.scene.position, "z", -10, 10).step(0.1);
+  // molecule.add(gltf5.scene.rotation, "x", -10, 10).step(0.1);
+  // molecule.add(gltf5.scene.rotation, "y", -10, 10).step(0.1);
+  // molecule.add(gltf5.scene.rotation, "z", -10, 10).step(0.1);
 
   function animationMouseMove5() {
     // Ajouter un écouteur d'événement pour la souris
@@ -313,22 +320,22 @@ pointLight2.position.z = 5;
 pointLight2.intensity = 0.6;
 scene.add(pointLight2);
 
-const light2 = gui.addFolder("AmbientLight");
+// const light2 = gui.addFolder("AmbientLight");
 
-light2.add(pointLight2.position, "x").min(-10).max(10).step(0.1);
-light2.add(pointLight2.position, "y").min(-10).max(10).step(0.1);
-light2.add(pointLight2.position, "z").min(-50).max(10).step(0.1);
-light2.add(pointLight2, "intensity").min(-10).max(100).step(0.1);
+// light2.add(pointLight2.position, "x").min(-10).max(10).step(0.1);
+// light2.add(pointLight2.position, "y").min(-10).max(10).step(0.1);
+// light2.add(pointLight2.position, "z").min(-50).max(10).step(0.1);
+// light2.add(pointLight2, "intensity").min(-10).max(100).step(0.1);
 
-const light2Color = {
-  color: 0xffffff,
-};
+// const light2Color = {
+//   color: 0xffffff,
+// };
 
-light2.addColor(light2Color, "color").onChange(() => {
-  light2Color.color.set(light2Color.color);
-});
-const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 2);
-scene.add(pointLightHelper2);
+// light2.addColor(light2Color, "color").onChange(() => {
+//   light2Color.color.set(light2Color.color);
+// });
+// const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 2);
+// scene.add(pointLightHelper2);
 
 // Lights
 
@@ -340,22 +347,22 @@ pointLight.position.z = 5;
 pointLight.intensity = 15;
 scene.add(pointLight);
 
-const light1 = gui.addFolder("pointLight");
+// const light1 = gui.addFolder("pointLight");
 
-light1.add(pointLight.position, "x").min(-10).max(10).step(0.1);
-light1.add(pointLight.position, "y").min(-10).max(10).step(0.1);
-light1.add(pointLight.position, "z").min(-50).max(10).step(0.1);
-light1.add(pointLight, "intensity").min(-10).max(100).step(0.1);
+// light1.add(pointLight.position, "x").min(-10).max(10).step(0.1);
+// light1.add(pointLight.position, "y").min(-10).max(10).step(0.1);
+// light1.add(pointLight.position, "z").min(-50).max(10).step(0.1);
+// light1.add(pointLight, "intensity").min(-10).max(100).step(0.1);
 
-const light1Color = {
-  color: 0xffffff,
-};
+// const light1Color = {
+//   color: 0xffffff,
+// };
 
-light1.addColor(light1Color, "color").onChange(() => {
-  pointLight.color.set(light1Color.color);
-});
-const pointLightHelper = new THREE.PointLightHelper(pointLight, 2);
-scene.add(pointLightHelper);
+// light1.addColor(light1Color, "color").onChange(() => {
+//   pointLight.color.set(light1Color.color);
+// });
+// const pointLightHelper = new THREE.PointLightHelper(pointLight, 2);
+// scene.add(pointLightHelper);
 
 /**
  * Sizes
@@ -400,24 +407,24 @@ camera.far = 10000;
 
 scene.add(camera);
 
-const cameraSettings = gui.addFolder("camera");
-gui.add(camera.position, "x", -10, 10).step(0.1);
-gui.add(camera.position, "y", -10, 10).step(0.1);
-gui.add(camera.position, "z", -10, 10).step(0.1);
-gui.add(camera.rotation, "x", -10, 10).step(0.1);
-gui.add(camera.rotation, "y", -10, 10).step(0.1);
-gui.add(camera.rotation, "z", -10, 10).step(0.1);
-gui.add({ distance: camera.far }, "distance", 0, 10000).onChange((value) => {
-  camera.far = value;
-  camera.updateProjectionMatrix();
-});
+// const cameraSettings = gui.addFolder("camera");
+// gui.add(camera.position, "x", -10, 10).step(0.1);
+// gui.add(camera.position, "y", -10, 10).step(0.1);
+// gui.add(camera.position, "z", -10, 10).step(0.1);
+// gui.add(camera.rotation, "x", -10, 10).step(0.1);
+// gui.add(camera.rotation, "y", -10, 10).step(0.1);
+// gui.add(camera.rotation, "z", -10, 10).step(0.1);
+// gui.add({ distance: camera.far }, "distance", 0, 10000).onChange((value) => {
+//   camera.far = value;
+//   camera.updateProjectionMatrix();
+// });
 
-gui
-  .add(camera, "fov", 50, 150)
-  .name("Focal Length")
-  .onChange(() => {
-    camera.updateProjectionMatrix();
-  });
+// gui
+//   .add(camera, "fov", 50, 150)
+//   .name("Focal Length")
+//   .onChange(() => {
+//     camera.updateProjectionMatrix();
+//   });
 
 gsap.to(camera, {
   far: 10001,

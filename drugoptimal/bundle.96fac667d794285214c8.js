@@ -1,0 +1,2 @@
+!function(){const e=document.querySelector(".burger"),t=document.querySelector("nav"),l=document.querySelectorAll(".line");e.addEventListener("click",(()=>{console.log(t.classList),t.classList.toggle("nav__active"),e.classList.toggle("burger__active"),l[0].classList.toggle("line1__active"),l[1].classList.toggle("line2__active"),l[2].classList.toggle("line3__active")}))}();
+//# sourceMappingURL=bundle.96fac667d794285214c8.js.map

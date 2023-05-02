@@ -570,7 +570,7 @@ footer {
 
 @media screen and (max-width: 1200px) {
   header {
-    padding: 0 3rem;
+    padding: 0 2rem;
     nav ul li a,
     nav ul li p {
       font-size: 0.8rem;
@@ -588,6 +588,10 @@ footer {
         letter-spacing: 0.3rem;
         font-size: 1.8rem;
       }
+    }
+    .webgl {
+      width: 100%;
+      height: 100%;
     }
   }
   .contexte {
@@ -609,9 +613,10 @@ footer {
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 890px) {
   header {
     z-index: 1000;
+    padding: 0 2rem;
     nav {
       position: absolute;
       top: 0;
@@ -647,6 +652,10 @@ footer {
         letter-spacing: 0.3rem;
         font-size: 1.3rem;
       }
+    }
+    .webgl {
+      width: 100%;
+      height: 100%;
     }
   }
   .contexte {
@@ -748,15 +757,86 @@ footer {
 }
 
 @media screen and (max-width: 780px) {
-  .couverture .title {
+  .couverture {
+    .title {
+      h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+        letter-spacing: 0.5rem;
+      }
+      h2 {
+        margin-top: 1rem;
+        letter-spacing: 0.3rem;
+        font-size: 1.3rem;
+      }
+    }
+    .more {
+      width: 15rem;
+    }
+    .webgl {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  .contexte {
+    padding: 1rem;
+    flex-direction: column;
+
+    .container__text {
+      width: 100%;
+    }
+    .illu {
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+
+  .presentation__projet {
+    padding: 2rem;
     h1 {
       font-size: 2rem;
       line-height: 2rem;
     }
-    h2 {
-      margin-top: 1.2rem;
-      letter-spacing: 0.3rem;
-      font-size: 1rem;
+
+    .imac {
+      width: 70%;
+      margin: 2rem 0;
     }
+
+    p {
+      text-align: justify;
+      width: 100%;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  .qui {
+    padding: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+    .silhouettes {
+      width: 50%;
+      margin: 1rem 0;
+    }
+  }
+  .plus__info {
+    padding: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+    .container__cards {
+      flex-direction: column;
+      row-gap: 2rem;
+      width: 100%;
+    }
+  }
+  footer .contact img {
+    width: 16rem;
   }
 }
