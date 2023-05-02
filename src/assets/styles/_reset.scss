@@ -31,3 +31,23 @@ $font_primary: "Montserrat", sans-serif;
 // ::-webkit-scrollbar-thumb {
 //   background-color: var(--primary-color);
 // }
+
+h1 {
+  width: 70%;
+  font-family: $font_primary;
+  font-size: 5rem;
+  color: var(--white);
+  text-align: center;
+  font-weight: 700;
+  line-height: 5rem;
+  text-transform: uppercase;
+  z-index: 2;
+}
+h2 {
+  width: 70%;
+  font-family: $font_primary;
+  font-size: 1.3rem;
+  color: var(--black);
+  text-align: center;
+  font-weight: 500;
+}
