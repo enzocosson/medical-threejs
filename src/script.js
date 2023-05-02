@@ -17,17 +17,17 @@ const scene = new THREE.Scene();
 let loadedCount = 0;
 const expectedLoadCount = 5;
 
-function activateLoader() {
-  if (loadedCount === expectedLoadCount) {
-    const loader = document.querySelector(".loader");
-    loader.classList.add("loader__active");
-  }
-}
+let gltf;
+let gltf2;
+let gltf3;
+let gltf4;
+let gltf5;
 
 // Objects
-gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
+gltfLoader.load("./molecule_opaque.gltf", (loadedGltf) => {
+  gltf = loadedGltf;
   gltf.scene.scale.set(0.9, 0.9, 0.9);
-  gltf.scene.position.set(-2, 0, -15);
+  gltf.scene.position.set(-2, 0, -800);
   gltf.scene.rotation.set(0, 0, 0);
   gltf.scene.opacity = "1";
   scene.add(gltf.scene);
@@ -40,56 +40,14 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf) => {
   // molecule.add(gltf.scene.rotation, "y", -10, 10).step(0.1);
   // molecule.add(gltf.scene.rotation, "z", -10, 10).step(0.1);
 
-  function animationMouseMove() {
-    // Ajouter un écouteur d'événement pour la souris
-    window.addEventListener("mousemove", onMouseMove, false);
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let animate = true;
-
-    function onMouseMove(event) {
-      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-      animate = true;
-    }
-
-    document.addEventListener("mousemove", onMouseMove, false);
-
-    function update() {
-      requestAnimationFrame(update);
-
-      if (animate) {
-        gsap.to(gltf.scene.rotation, {
-          duration: 1,
-          x: mouseY * 0.2,
-          y: mouseX * 0.2,
-          ease: "power1.out",
-        });
-        animate = false;
-      }
-
-      // Render la scène
-      renderer.render(scene, camera);
-    }
-
-    update();
-  }
-
-  animationMouseMove();
-
   loadedCount++;
   activateLoader();
-
-  const loader = document.querySelector(".loader");
-  if (loader.classList.contains("loader__active")) {
-    console.log("loader active");
-  }
 });
 
-gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
+gltfLoader.load("./molecule_opaque.gltf", (loadedGltf2) => {
+  gltf2 = loadedGltf2;
   gltf2.scene.scale.set(1.1, 1.1, 1.1);
-  gltf2.scene.position.set(13, 8, -60);
+  gltf2.scene.position.set(13, 8, -1250);
   gltf2.scene.rotation.set(-0.7, -0.5, 2.9);
   gltf2.scene.opacity = "1";
   scene.add(gltf2.scene);
@@ -102,49 +60,14 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf2) => {
   // molecule.add(gltf2.scene.rotation, "y", -10, 10).step(0.1);
   // molecule.add(gltf2.scene.rotation, "z", -10, 10).step(0.1);
 
-  function animationMouseMove2() {
-    // Ajouter un écouteur d'événement pour la souris
-    window.addEventListener("mousemove", onMouseMove, false);
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let animate = true;
-
-    function onMouseMove(event) {
-      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-      animate = true;
-    }
-
-    document.addEventListener("mousemove", onMouseMove, false);
-
-    function update() {
-      requestAnimationFrame(update);
-
-      if (animate) {
-        gsap.to(gltf2.scene.rotation, {
-          duration: 1,
-          x: mouseY * 0.1,
-          y: mouseX * 0.1,
-          ease: "power1.out",
-        });
-        animate = false;
-      }
-
-      // Render la scène
-      renderer.render(scene, camera);
-    }
-
-    update();
-  }
-  animationMouseMove2();
   loadedCount++;
   activateLoader();
 });
 
-gltfLoader.load("./molecule_opaque.gltf", (gltf3) => {
+gltfLoader.load("./molecule_opaque.gltf", (loadedGltf3) => {
+  gltf3 = loadedGltf3;
   gltf3.scene.scale.set(1.1, 1.1, 1.1);
-  gltf3.scene.position.set(40, -20, -120);
+  gltf3.scene.position.set(40, -20, -1500);
   gltf3.scene.rotation.set(-0.7, -0.5, 2.7);
   gltf3.scene.opacity = "1";
   scene.add(gltf3.scene);
@@ -157,50 +80,14 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf3) => {
   // molecule.add(gltf3.scene.rotation, "y", -10, 10).step(0.1);
   // molecule.add(gltf3.scene.rotation, "z", -10, 10).step(0.1);
 
-  function animationMouseMove3() {
-    // Ajouter un écouteur d'événement pour la souris
-    window.addEventListener("mousemove", onMouseMove, false);
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let animate = true;
-
-    function onMouseMove(event) {
-      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-      animate = true;
-    }
-
-    document.addEventListener("mousemove", onMouseMove, false);
-
-    function update() {
-      requestAnimationFrame(update);
-
-      if (animate) {
-        gsap.to(gltf3.scene.rotation, {
-          duration: 1,
-          x: mouseY * 0.05,
-          y: mouseX * 0.05,
-          ease: "power1.out",
-        });
-        animate = false;
-      }
-
-      // Render la scène
-      renderer.render(scene, camera);
-    }
-
-    update();
-  }
-  animationMouseMove3();
-
   loadedCount++;
   activateLoader();
 });
 
-gltfLoader.load("./molecule_opaque.gltf", (gltf4) => {
+gltfLoader.load("./molecule_opaque.gltf", (loadedGltf4) => {
+  gltf4 = loadedGltf4;
   gltf4.scene.scale.set(1, 1, 1);
-  gltf4.scene.position.set(-45, 30, -250);
+  gltf4.scene.position.set(-45, 30, -1300);
   gltf4.scene.rotation.set(0.22, 5, 3);
   gltf4.scene.opacity = "1";
   scene.add(gltf4.scene);
@@ -213,50 +100,14 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf4) => {
   // molecule.add(gltf4.scene.rotation, "y", -10, 10).step(0.1);
   // molecule.add(gltf4.scene.rotation, "z", -10, 10).step(0.1);
 
-  function animationMouseMove4() {
-    // Ajouter un écouteur d'événement pour la souris
-    window.addEventListener("mousemove", onMouseMove, false);
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let animate = true;
-
-    function onMouseMove(event) {
-      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-      animate = true;
-    }
-
-    document.addEventListener("mousemove", onMouseMove, false);
-
-    function update() {
-      requestAnimationFrame(update);
-
-      if (animate) {
-        gsap.to(gltf4.scene.rotation, {
-          duration: 1,
-          x: mouseY * 0.01,
-          y: mouseX * 0.01,
-          ease: "power1.out",
-        });
-        animate = false;
-      }
-
-      // Render la scène
-      renderer.render(scene, camera);
-    }
-
-    update();
-  }
-  animationMouseMove4();
-
   loadedCount++;
   activateLoader();
 });
 
-gltfLoader.load("./molecule_opaque.gltf", (gltf5) => {
+gltfLoader.load("./molecule_opaque.gltf", (loadedGltf5) => {
+  gltf5 = loadedGltf5;
   gltf5.scene.scale.set(1, 1, 1);
-  gltf5.scene.position.set(-32, -4, -90);
+  gltf5.scene.position.set(-32, -4, -800);
   gltf5.scene.rotation.set(-1.1, 0.3, 3);
   gltf5.scene.opacity = "1";
   scene.add(gltf5.scene);
@@ -269,48 +120,245 @@ gltfLoader.load("./molecule_opaque.gltf", (gltf5) => {
   // molecule.add(gltf5.scene.rotation, "y", -10, 10).step(0.1);
   // molecule.add(gltf5.scene.rotation, "z", -10, 10).step(0.1);
 
-  function animationMouseMove5() {
-    // Ajouter un écouteur d'événement pour la souris
-    window.addEventListener("mousemove", onMouseMove, false);
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let animate = true;
-
-    function onMouseMove(event) {
-      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-      animate = true;
-    }
-
-    document.addEventListener("mousemove", onMouseMove, false);
-
-    function update() {
-      requestAnimationFrame(update);
-
-      if (animate) {
-        gsap.to(gltf5.scene.rotation, {
-          duration: 1,
-          x: mouseY * 0.2,
-          y: mouseX * 0.2,
-          ease: "power1.out",
-        });
-        animate = false;
-      }
-
-      // Render la scène
-      renderer.render(scene, camera);
-    }
-
-    update();
-  }
-  animationMouseMove5();
-
   loadedCount++;
   activateLoader();
 });
 
-// Ambient Light
+// Animation Mouse ----------------------------------
+function animationStart() {
+  gsap.to(gltf.scene.position, {
+    duration: 2,
+    delay: 0,
+    z: -15,
+    ease: "power4.inOut",
+    onComplete: animationMouseMove,
+  });
+}
+function animationMouseMove() {
+  // Ajouter un écouteur d'événement pour la souris
+  window.addEventListener("mousemove", onMouseMove, false);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let animate = true;
+
+  function onMouseMove(event) {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    animate = true;
+  }
+
+  document.addEventListener("mousemove", onMouseMove, false);
+
+  function update() {
+    requestAnimationFrame(update);
+
+    if (animate) {
+      gsap.to(gltf.scene.rotation, {
+        duration: 1,
+        x: mouseY * 0.2,
+        y: mouseX * 0.2,
+        ease: "power1.out",
+      });
+      animate = false;
+    }
+
+    // Render la scène
+    renderer.render(scene, camera);
+  }
+
+  update();
+}
+function animationStart2() {
+  gsap.to(gltf2.scene.position, {
+    duration: 2,
+    delay: 0.2,
+    z: -60,
+    ease: "power4.inOut",
+    onComplete: animationMouseMove2,
+  });
+}
+function animationMouseMove2() {
+  // Ajouter un écouteur d'événement pour la souris
+  window.addEventListener("mousemove", onMouseMove, false);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let animate = true;
+
+  function onMouseMove(event) {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    animate = true;
+  }
+
+  document.addEventListener("mousemove", onMouseMove, false);
+
+  function update() {
+    requestAnimationFrame(update);
+
+    if (animate) {
+      gsap.to(gltf2.scene.rotation, {
+        duration: 1,
+        x: mouseY * 0.1,
+        y: mouseX * 0.1,
+        ease: "power1.out",
+      });
+      animate = false;
+    }
+
+    // Render la scène
+    renderer.render(scene, camera);
+  }
+
+  update();
+}
+function animationStart3() {
+  gsap.to(gltf3.scene.position, {
+    duration: 2,
+    delay: 0.3,
+    z: -120,
+    ease: "power4.inOut",
+    onComplete: animationMouseMove3,
+  });
+}
+function animationMouseMove3() {
+  // Ajouter un écouteur d'événement pour la souris
+  window.addEventListener("mousemove", onMouseMove, false);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let animate = true;
+
+  function onMouseMove(event) {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    animate = true;
+  }
+
+  document.addEventListener("mousemove", onMouseMove, false);
+
+  function update() {
+    requestAnimationFrame(update);
+
+    if (animate) {
+      gsap.to(gltf3.scene.rotation, {
+        duration: 1,
+        x: mouseY * 0.05,
+        y: mouseX * 0.05,
+        ease: "power1.out",
+      });
+      animate = false;
+    }
+
+    // Render la scène
+    renderer.render(scene, camera);
+  }
+
+  update();
+}
+function animationStart4() {
+  gsap.to(gltf4.scene.position, {
+    duration: 2,
+    delay: 0.35,
+    z: -250,
+    ease: "power4.inOut",
+    onComplete: animationMouseMove4,
+  });
+}
+function animationMouseMove4() {
+  // Ajouter un écouteur d'événement pour la souris
+  window.addEventListener("mousemove", onMouseMove, false);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let animate = true;
+
+  function onMouseMove(event) {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    animate = true;
+  }
+
+  document.addEventListener("mousemove", onMouseMove, false);
+
+  function update() {
+    requestAnimationFrame(update);
+
+    if (animate) {
+      gsap.to(gltf4.scene.rotation, {
+        duration: 1,
+        x: mouseY * 0.01,
+        y: mouseX * 0.01,
+        ease: "power1.out",
+      });
+      animate = false;
+    }
+
+    // Render la scène
+    renderer.render(scene, camera);
+  }
+
+  update();
+}
+function animationStart5() {
+  gsap.to(gltf5.scene.position, {
+    duration: 2,
+    delay: 0.15,
+    z: -90,
+    ease: "power4.inOut",
+    onComplete: animationMouseMove5,
+  });
+}
+function animationMouseMove5() {
+  // Ajouter un écouteur d'événement pour la souris
+  window.addEventListener("mousemove", onMouseMove, false);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let animate = true;
+
+  function onMouseMove(event) {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    animate = true;
+  }
+
+  document.addEventListener("mousemove", onMouseMove, false);
+
+  function update() {
+    requestAnimationFrame(update);
+
+    if (animate) {
+      gsap.to(gltf5.scene.rotation, {
+        duration: 1,
+        x: mouseY * 0.2,
+        y: mouseX * 0.2,
+        ease: "power1.out",
+      });
+      animate = false;
+    }
+
+    // Render la scène
+    renderer.render(scene, camera);
+  }
+
+  update();
+}
+
+function animationLinks() {
+  console.log("animationLinks");
+  const link = document.querySelectorAll(".link");
+
+  gsap.to(link, {
+    stagger: 0.2,
+    duration: 1,
+    opacity: 1,
+    ease: "Power1.inOut",
+  });
+}
+
+// Ambient Light ------------------------------------
 
 const pointLight2 = new THREE.AmbientLight(0xffffff, 10);
 pointLight2.scale.set(0.3, 0.3, 0.3);
@@ -505,6 +553,21 @@ xhr.onloadend = () => {
   }
 };
 xhr.send();
+
+// Loader -------------------------------------------
+
+function activateLoader() {
+  if (loadedCount === expectedLoadCount) {
+    const loader = document.querySelector(".loader");
+    loader.classList.add("loader__active");
+    animationLinks();
+    animationStart();
+    animationStart2();
+    animationStart3();
+    animationStart4();
+    animationStart5();
+  }
+}
 
 window.addEventListener("load", () => {
   activateLoader();

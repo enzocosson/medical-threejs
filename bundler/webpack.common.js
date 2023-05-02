@@ -8,6 +8,10 @@ module.exports = {
     main: path.resolve(__dirname, "../src/script.js"),
     menuToggle: path.resolve(__dirname, "../src/assets/js/menuToggle.js"),
     darkmode: path.resolve(__dirname, "../src/assets/js/darkmode.js"),
+    launchAnimation: path.resolve(
+      __dirname,
+      "../src/assets/js/launchAnimation.js"
+    ),
   },
   output: {
     filename: "bundle.[contenthash].js",
