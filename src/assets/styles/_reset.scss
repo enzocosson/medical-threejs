@@ -33,7 +33,6 @@ $font_primary: "Montserrat", sans-serif;
 // }
 
 h1 {
-  width: 70%;
   font-family: $font_primary;
   font-size: 5rem;
   color: var(--white);
@@ -44,10 +43,40 @@ h1 {
   z-index: 2;
 }
 h2 {
-  width: 70%;
   font-family: $font_primary;
   font-size: 1.3rem;
   color: var(--black);
   text-align: center;
-  font-weight: 500;
+}
+section {
+  padding: 5rem;
+  background-color: var(--white);
+}
+
+@media screen and (max-width: 980px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  section {
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 780px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  h2 {
+    font-size: 0.8rem;
+  }
+  h3 {
+    font-size: 0.8rem;
+  }
+  section {
+    padding: 1rem;
+  }
 }
